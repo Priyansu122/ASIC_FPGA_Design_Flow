@@ -29,6 +29,12 @@ This page will contain the steps to install the tools required for both [FPGA](#
     - Open-Source: Free to use, modify, and distribute.
     - Cross-Platform: Available for Windows, Linux, and macOS.
   - **Installation : For Windows**</br>
+  Before starting update and upgrade using the following command in the WSL window. </br>
+  **sudo apt update </br>
+  sudo apt upgrade**
+
+
+
     - Step1 : Download an archive matching your OS from [the releases page](https://github.com/YosysHQ/oss-cad-suite-build/releases/latest).
     - Step2 : Extract the compressed file in your desired location </br>
       - Example : Say you want to extract the file in D drive in your system then you have to mount to D drive in WSL then extract using "tar" command
@@ -52,10 +58,15 @@ This page will contain the steps to install the tools required for both [FPGA](#
         ```bash
         source ~/.bashrc
         ```
-      - Now You are ready with the tools that OSS CAD SUIT contains.
-    - **Note**</br>
+      - To confirm installation, run a command such as ```nextpnr-ice40``` or ```yosys```. Now You are ready with the tools that OSS CAD SUIT contains.
+- **Note**</br>
       All installation information provided in this document is sourced from the OSS CAD Suite repository by YosysHQ. For more detailed information and updates, please visit their
       [GitHub page](https://github.com/YosysHQ/oss-cad-suite-build.git).
+
+  ### OpenSTA
+  OpenSTA (Open Static Timing Analyzer) is an open-source tool used in digital integrated circuit design to analyze the timing of digital circuits. It helps 
+  designers ensure that circuits meet timing requirements by calculating the delay of signals through various paths in the design
+  
 
 
       
