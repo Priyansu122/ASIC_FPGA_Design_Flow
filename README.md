@@ -65,7 +65,34 @@ This page will contain the steps to install the tools required for both [FPGA](#
 
   ### OpenSTA
   OpenSTA (Open Static Timing Analyzer) is an open-source tool used in digital integrated circuit design to analyze the timing of digital circuits. It helps 
-  designers ensure that circuits meet timing requirements by calculating the delay of signals through various paths in the design
+  designers ensure that circuits meet timing requirements by calculating the delay of signals through various paths in the design.
+
+  **Installation steps [For Windows]** </br>
+  Step1 : Prerequisites </br>
+  The build dependency versions are shown below. Other versions may work, but these are the versions used for development.
+```bash
+Dependacies   Versions   How to check if installed 
+-----------   --------   -------------------------
+cmake         3.24.2     cmake --version
+clang                    clang --version
+gcc           11.4.0     gcc --version
+tcl           8.6        dpkg -l | grep tcl
+swig          4.1.0      swig -version
+bison         3.8.2      bison --version
+flex          2.6.4      flex --version
+```
+External library dependencies:</br>
+```bash
+         
+eigen            3.4.0    dpkg -l | grep libeigen
+tclreadline               dpkg -l | grep tclreadline
+libz             1.2.5    dpkg -l | grep libz
+cudd             2.4.1    ls /usr/local/lib | grep libcudd
+                          ls /usr/local/include | grep cudd
+```
+  
+
+
   
 
 
