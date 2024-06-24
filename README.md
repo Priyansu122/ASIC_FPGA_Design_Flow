@@ -90,17 +90,48 @@ libz             1.2.5    dpkg -l | grep libz
 cudd             2.4.1    ls /usr/local/lib | grep libcudd
                           ls /usr/local/include | grep cudd
 ```
-  
+Step 2 : Installation --> Write and execute the following commands in WSL terminal one by one
+```bash
+git clone https://github.com/The-OpenROAD-Project/OpenSTA.git 
+cd OpenSTA 
+mkdir build
+cd build
+cmake .. 
+make
+sudo make install
+```
+step 3 : Verify the installation by using the following command
+```bash
+sta
+```
+**Note** :
+1. If any dependencies are missing, you can use ChatGPT for assistance in installing them on your system. 
+2. All build information is sourced from the OpenSTA GitHub repository. Visit for more details.
 
+### OpenRoad
+OpenROAD is a comprehensive tool for chip physical design that transforms a synthesized Verilog netlist into a routed layout.
 
-  
+The OpenROAD Project has two releases:
 
+- Application [(github)](https://github.com/The-OpenROAD-Project/OpenROAD) [(docs)](https://openroad.readthedocs.io/en/latest/main/README.html): The application is a standalone binary for digital place and route that can be used by any other RTL-GDSII flow controller.
+- Flow [(github)](https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts) [(docs)](https://openroad-flow-scripts.readthedocs.io/en/latest/): This is the native OpenROAD flow that consists of a set of integrated scripts for an autonomous RTL-GDSII flow using OpenROAD and other open-source tools.
+- We will be following the application github page becuase it allows us to divide the whole script to subscripts like script for floorplanning, script for detailed routing hence that will give us a better idea on flow and will help us to visualize
+- You can explore flow github release for Automated RTL to GDS flow
 
-      
-      
-      
-    
-
-
-  
+  **Installation**
+  - Follow the following steps that is execute following commands one by one in the WSL terminal
+  ```bash
+  git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD.git
+  cd OpenROAD
+  sudo ./etc/DependencyInstaller.sh
+  mkdir build
+  cd build
+  cmake
+  make
+  sudo make install
+  ```
+  - Verify the installation using the following command
+  ```bash
+  openroad
+  ```
   ## FPGA_FLOW
