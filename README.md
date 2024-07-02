@@ -1,5 +1,5 @@
 # ASIC_FPGA_Design_Flow
-This page will contain the steps to install the tools required for both [FPGA](#FPGA_FLOW) and ASIC flow and the steps to execute the flow in digital design.
+This page will contain the steps to install the tools required for both [FPGA](#FPGA_FLOW) and [ASIC flow](#ASIC_FLOW) and the steps to execute the flow in digital design.
 ## Tools required
 - For FPGA flow we need tools like</br>
   1. Iverilog and gtkwave - For simulation and Functional verification
@@ -134,4 +134,6 @@ The OpenROAD Project has two releases:
   ```bash
   openroad
   ```
+
+  ## ASIC_FLOW
   ## FPGA_FLOW
