@@ -135,5 +135,8 @@ The OpenROAD Project has two releases:
   openroad
   ```
 
-  ## ASIC_FLOW
-  ## FPGA_FLOW
+## ASIC_FLOW  
+- This section will describe the RTL to GDS flow step by step. By following these steps you can converts your design to the final layout file
+that will be given to Fabrication house.
+
+## FPGA_FLOW
