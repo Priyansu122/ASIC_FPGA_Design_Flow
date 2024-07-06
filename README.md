@@ -138,5 +138,21 @@ The OpenROAD Project has two releases:
 ## ASIC_FLOW  
 - This section will describe the RTL to GDS flow step by step. By following these steps you can converts your design to the final layout file
 that will be given to Fabrication house.
+- Here we will be using [sky130 technology library](https://skywater-pdk.readthedocs.io/en/main/contents/libraries.html).
+- A technology library is provided by the foundry because it contains standardized, pre-characterized cells and components specifically designed for a particular semiconductor manufacturing process. These libraries ensure that designs are optimized for performance, power, and area, and they help designers create reliable and manufacturable integrated circuits (ICs) by providing accurate models and parameters that match the foundry's process capabilities
 
-## FPGA_FLOW
+### STEPS
+- **NOTE** </br>
+  - You have installed Openroad, **/OpenROAD/test** contains all the example design such as Ibex
+  - Here the flow.tcl contains the overall script for Physical design 
+- Step1 : **Design and Verification** </br>
+  - Creat a file say design.v 
+          -
+  
+  
+  
+
+  
+ 
+
+
