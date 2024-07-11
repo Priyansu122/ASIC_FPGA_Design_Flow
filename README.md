@@ -233,11 +233,11 @@ report_checks -path_delay min -format full
 #report_checks -path_delay min > reports.txt
 #Store the report of the timing checks for the design (hold) in the reports.txt file.
 ``` 
-  - The “sta” command is used to invoke OpenSTA and launch the tool.
+   --> The “sta” command is used to invoke OpenSTA and launch the tool.
 ```bash
 $ sta
 ```
-  - This command executes the commands specified in the "test.tcl" script file.
+   --> This command executes the commands specified in the "test.tcl" script file.
 ```bash
 source test.tcl
 ```
