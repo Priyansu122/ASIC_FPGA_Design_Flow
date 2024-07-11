@@ -190,9 +190,13 @@ write_verilog -noattr synth.v
 
 ```
 -->  Launch the yosys tool </br>
- $ yosys </br>
+```bash
+ $ yosys
+```
 --> You can individually run the commands listed above. I am using a tcl file.</br>
- yosys> script synthesis.tcl </br>
+```bash
+ yosys> script synthesis.tcl
+```
 --> synth.v is the netlist created by yosys tool.</br>
 --> You can observe that the modules used in synth.v is from the technology library.</br>
 --> Again you can check the functionality of the synthesized code using follwing commnad.
@@ -206,10 +210,41 @@ gtkwave test.vcd
 
 - Step3 : **Static time Analysis**
    - You can use this to findout setup slack and hold slack if both the slacks comes out to be positive in the report then the STA test is passed.
-   - 
+   - You need the following files for the sta analysis
+       - synthesized nestlist -> synth.v
+       - contrain file -> top.sdc
+   - In constrain file you can metion the design constrain like clock speed, input delay, output delay etc.
+   - You can creat a tcl script and use that to run set of commands the commands are given as follows. I have named that script as sta.tcl
+```bash
+# instructs OpenSTA to read and load liberty file
+read_liberty /home/<your user name>/resources/sky130hd/sky130hd_tt.lib
+# instructs OpenSTA to read and load the netlist
+read_verilog synth.v
+# Using "top," which stands for the main module, links the Verilog code with the Liberty timing
+link_design counter
+#Reads and loads the Synopsys Design Constraints (SDC) file "top.sdc"
+read_sdc top.sdc
+report_checks -path_delay max -format full
+#Report of the timing checks for the design (setup)
+#report_checks -path_delay max > reports.txt
+#Store the report of the timing checks for the design (setup) in the reports.txt file.
+report_checks -path_delay min -format full
+#Report of the timing checks for the design (hold)
+#report_checks -path_delay min > reports.txt
+#Store the report of the timing checks for the design (hold) in the reports.txt file.
+``` 
+  - The “sta” command is used to invoke OpenSTA and launch the tool.
+```bash
+$ sta
+```
+  - This command executes the commands specified in the "test.tcl" script file.
+```bash
+source test.tcl
+```
 
+- Step4 : **Physical design using OpenRoad**
   
-  
+
   
 
   
