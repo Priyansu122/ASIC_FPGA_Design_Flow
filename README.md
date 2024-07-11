@@ -142,12 +142,72 @@ that will be given to Fabrication house.
 - A technology library is provided by the foundry because it contains standardized, pre-characterized cells and components specifically designed for a particular semiconductor manufacturing process. These libraries ensure that designs are optimized for performance, power, and area, and they help designers create reliable and manufacturable integrated circuits (ICs) by providing accurate models and parameters that match the foundry's process capabilities
 
 ### STEPS
-- **NOTE** </br>
-  - You have installed Openroad, **/OpenROAD/test** contains all the example design such as Ibex
-  - Here the flow.tcl contains the overall script for Physical design 
 - Step1 : **Design and Verification** </br>
-  - Creat a file say design.v 
-          -
+  - Creat a file say counter.v for your design and another file say tb_counter.v for the testbench.
+  - Execute the following command,
+```bash
+iverilog -o counter counter.v tb_counter.v
+vvp counter
+```
+--> if you have any syntax error in your design you can see that after executing 1st command </br>
+--> After executing 2nd command a .vcd file will be generated </br>
+**Note** : The name of the .vcd file will be same as you have given in the testbench. for example : $dumpfile("test.vcd")
+Then execute the following command 
+```bash
+gtkwave test.vcd
+```
+--> You can see the waveform and verify your design functionality
+
+- Step2 : **Synthesis using Yosys**
+    - Synthesis required basically 2 files i.e design(.v file), Technology library(.lib file).
+    - Synthesis of a design consist of several commands.
+    - we will create a tcl script i.e a file named say synthesis.tcl and we will put all commands there.
+    - The commands are as follows, 
+```bash
+# read design
+read_verilog counter.v
+
+# elaborate design hierarchy
+hierarchy -check -top counter
+
+# the high-level stuff
+proc; opt; fsm; opt; memory; opt
+
+# mapping to internal cell library
+techmap; opt
+
+# mapping flip-flops to mycells.lib
+dfflibmap -liberty /home/priyansu122/resources/sky130hd/sky130hd_tt.lib
+
+# mapping logic to mycells.lib
+abc -liberty /home/priyansu122/resources/sky130hd/sky130hd_tt.lib
+
+# cleanup
+clean
+
+# write synthesized design
+write_verilog -noattr synth.v
+
+```
+-->  Launch the yosys tool </br>
+ $ yosys </br>
+--> You can individually run the commands listed above. I am using a tcl file.</br>
+ yosys> script synthesis.tcl </br>
+--> synth.v is the netlist created by yosys tool.</br>
+--> You can observe that the modules used in synth.v is from the technology library.</br>
+--> Again you can check the functionality of the synthesized code using follwing commnad.
+```bash
+iverilog -o counter synth.v tb_counter.v formal_pdk.v
+vvp counter
+gtkwave test.vcd
+```
+--> formal_pdk.v is the file which describes the functionality of the modules present in the technology library.</br>
+--> You can find this in this location "~/OpenROAD/test/sky130hd/work_around_yosys"
+
+- Step3 : **Static time Analysis**
+   - You can use this to findout setup slack and hold slack if both the slacks comes out to be positive in the report then the STA test is passed.
+   - 
+
   
   
   
