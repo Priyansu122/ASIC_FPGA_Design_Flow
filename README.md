@@ -270,7 +270,7 @@ source test.tcl
     -  **Option 2** : Copy the resources and build it in different location.
           - Clone the this page using git clone command
           - cd into the counter folder.
-          - it has all the resources you need for executing RTL to GDS flow.
+          - it has all the resources inculding a simple counter design and testbench you need for executing RTL to GDS flow.
           - You can start looking at all files and start building from here also.
           - I have metioned the set of commands below follow them one by one.
 ```bash
