@@ -270,15 +270,19 @@ source test.tcl
         - You can follow this [link](https://openroad.readthedocs.io/en/latest/main/src/README.html) for details of the command used in flow.tcl.
           
     -  **Option 2** : Copy the resources and build it in different location.
-          - Clone the this page using git clone command
-          - cd into the counter folder.
+          - Clone the this page using git clone command and enter into the repository.
+          - Unzip the file then cd into the counter folder.
           - it has all the resources inculding a simple counter design and testbench you need for executing RTL to GDS flow.
           - You can start looking at all files and start building from here also.
           - I have metioned the set of commands below follow them one by one.
+          - As design and testbench is already there you can verify the design using iverilog and gtkwave then you can proceed with
+            synthesis, STA analysis, Physical design
+        
 ```bash
 git clone https://github.com/Priyansu122/ASIC_FPGA_Design_Flow.git
-cd
-
+cd cd ASIC_FPGA_Design_Flow/
+unzip ASIC_counter.zip
+cd counter/
 ```
 --> Below is the the example script given for the option 1 .
 
@@ -304,6 +308,11 @@ source -echo "flow.tcl"
 
 ### RESULTS OF ASIC FLOW : EXAMPLE --> COUNTER
 
+![image](https://github.com/user-attachments/assets/181d27f4-3244-4b1a-9c5c-b01d716410d5)
+
+- With this the ASIC flow is completed then in the next section we will be discussing about FPGA
+- If you face any problem while executing the flow kindly raise that the issue section of this page.
+  
 ## FPGA_FLOW
   
 
