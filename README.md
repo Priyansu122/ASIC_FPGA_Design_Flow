@@ -265,8 +265,15 @@ source test.tcl
         - Paste the content which is present at last of this section and then set location to synth.v and top.sdc.
         - helpers.tcl, flow_helpers.tcl, sky130hd/sky130hd.vars all these are the file that is integrated together for physical design which is present in the test folder of the OpenRoad.
         - Note that the log files will be stored according to the location given in flow.tcl therefore just open flow.tcl and check that. Mostly the log files will be stored in the test folder of OpenRoad directory.
+        - You can follow this [link](https://openroad.readthedocs.io/en/latest/main/src/README.html) for details of the command used in flow.tcl.
           
     -  **Option 2** : Copy the resources and build it in different location
+      
+           - clone this page follwing command command  ```git clone https://github.com/Priyansu122/ASIC_FPGA_Design_Flow.git ```
+
+```bash
+git clone https://github.com/Priyansu122/ASIC_FPGA_Design_Flow.git
+cd 
         
 ```bash
 source "helpers.tcl"
