@@ -197,9 +197,11 @@ write_verilog -noattr synth.v
 --> You can individually run the commands listed above. I am using a tcl file.</br>
 ```bash
  yosys> script synthesis.tcl
+ yosys> show
 ```
 --> synth.v is the netlist created by yosys tool.</br>
 --> You can observe that the modules used in synth.v is from the technology library.</br>
+--> show command will show the circuit of the verilog code you have written like how D flipflop is used instead of your always block in HDL you can observe that part here.
 --> Again you can check the functionality of the synthesized code using follwing commnad.
 ```bash
 iverilog -o counter synth.v tb_counter.v formal_pdk.v
