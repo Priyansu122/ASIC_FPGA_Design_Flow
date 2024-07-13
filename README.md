@@ -267,14 +267,19 @@ source test.tcl
         - Note that the log files will be stored according to the location given in flow.tcl therefore just open flow.tcl and check that. Mostly the log files will be stored in the test folder of OpenRoad directory.
         - You can follow this [link](https://openroad.readthedocs.io/en/latest/main/src/README.html) for details of the command used in flow.tcl.
           
-    -  **Option 2** : Copy the resources and build it in different location
-      
-           - clone this page follwing command command  ```git clone https://github.com/Priyansu122/ASIC_FPGA_Design_Flow.git ```
-
+    -  **Option 2** : Copy the resources and build it in different location.
+          - Clone the this page using git clone command
+          - cd into the counter folder.
+          - it has all the resources you need for executing RTL to GDS flow.
+          - You can start looking at all files and start building from here also.
+          - I have metioned the set of commands below follow them one by one.
 ```bash
 git clone https://github.com/Priyansu122/ASIC_FPGA_Design_Flow.git
-cd 
-        
+cd
+
+```
+--> Below is the the example script given for the option 1 .
+
 ```bash
 source "helpers.tcl"
 source "flow_helpers.tcl"
@@ -294,8 +299,10 @@ set core_area {9.996 10.08 289.964 290.048}
 source -echo "flow.tcl"
 
 ```
-  
---> 
+
+### RESULTS OF ASIC FLOW : EXAMPLE --> COUNTER
+
+## FPGA_FLOW
   
 
   
