@@ -162,7 +162,8 @@ gtkwave test.vcd
     - Synthesis required basically 2 files i.e design(.v file), Technology library(.lib file).
     - Synthesis of a design consist of several commands.
     - we will create a tcl script i.e a file named say synthesis.tcl and we will put all commands there.
-    - The commands are as follows, 
+    - The commands are as follows,
+    - 
 ```bash
 # read design
 read_verilog counter.v
@@ -177,10 +178,10 @@ proc; opt; fsm; opt; memory; opt
 techmap; opt
 
 # mapping flip-flops to mycells.lib
-dfflibmap -liberty /home/priyansu122/resources/sky130hd/sky130hd_tt.lib
+dfflibmap -liberty /home/(Your user name)/OpenRoad/test/sky130hd/sky130hd_tt.lib
 
 # mapping logic to mycells.lib
-abc -liberty /home/priyansu122/resources/sky130hd/sky130hd_tt.lib
+abc -liberty /home/(Your user name)/OpenRoad/test/sky130hd/sky130hd_tt.lib
 
 # cleanup
 clean
@@ -217,7 +218,7 @@ gtkwave test.vcd
    - You can creat a tcl script and use that to run set of commands the commands are given as follows. I have named that script as sta.tcl
 ```bash
 # instructs OpenSTA to read and load liberty file
-read_liberty /home/<your user name>/resources/sky130hd/sky130hd_tt.lib
+read_liberty /home/(your user name)/resources/sky130hd/sky130hd_tt.lib
 # instructs OpenSTA to read and load the netlist
 read_verilog synth.v
 # Using "top," which stands for the main module, links the Verilog code with the Liberty timing
@@ -243,8 +244,51 @@ source test.tcl
 ```
 
 - Step4 : **Physical design using OpenRoad**
-  
+    - OpenRoad consist of set of scripts integrated together to execute the physical design which has multiple steps like
+       - Floorplan
+       - Power distribution network
+       - global placement
+       - detailed placement
+       - clock tree synthesis
+       - Routing
+    - You can invoke the tool and run the script using command ```openroad -gui physicalDesign.tcl```
+    - Here physicalDesign.tcl is the script that is used for physical design.
+    -  Now You have two ways for using openroad tool.</br>
+    -  **Option 1** : Running the tool inside OpenRoad test folder
+      
+        - You can do all the steps in the test folder of openroad only like creating the design, testbench then running iverilog
+          then synthesis and generating synth.v then running sta after creating constaint file.
+        - But i personally prefer to do it like create a separate directory follow all the steps of RTL design, verification, synthesis, sta analysis there.
+        - Now you have synth.v and top.sdc in a separate folder this looks like pretty clean.
+        - Then move to test directory of openroad directory i.e cd /home/(Your user name)/OpenROAD/test
+        - create a file named physicalDesign.tcl in the test folder of openroad
+        - Paste the content which is present at last of this section and then set location to synth.v and top.sdc.
+        - helpers.tcl, flow_helpers.tcl, sky130hd/sky130hd.vars all these are the file that is integrated together for physical design which is present in the test folder of the OpenRoad.
+        - Note that the log files will be stored according to the location given in flow.tcl therefore just open flow.tcl and check that. Mostly the log files will be stored in the test folder of OpenRoad directory.
+          
+    -  **Option 2** : Copy the resources and build it in different location
+        
+```bash
+source "helpers.tcl"
+source "flow_helpers.tcl"
+source "sky130hd/sky130hd.vars"
 
+set location  /mnt/d/OpenRoad_things/counter/
+
+set synth_verilog "$location/synth.v"
+set design "counter"
+set top_module "counter"
+set sdc_file "$location/top.sdc"
+
+set die_area {0 0 299.96 300.128}
+set core_area {9.996 10.08 289.964 290.048}
+
+#------------Entire flow---------------------
+source -echo "flow.tcl"
+
+```
+  
+--> 
   
 
   
