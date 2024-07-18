@@ -330,6 +330,7 @@ source -echo "flow.tcl"
   </br>
   </br>
 
+**STEPS**
 1. Clone the page                     : ```git clone https://github.com/icebreaker-fpga/icebreaker-workshop.git```
 2. Enter into the stopwatch directory : ```cd icebreaker-workshop/stopwatch```
 3. Open the design file               : ```vim stopwatch.v```
