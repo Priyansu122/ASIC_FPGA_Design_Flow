@@ -323,9 +323,11 @@ source -echo "flow.tcl"
 
 ### Flow steps
 - For this Flow we are going to use icebreaker workshop the icebreaker board will be connected to 7 segemnt display in PMOD1A as shown in the figure below
-- For nay other details you can see the github page given in the Resouces section.
+- For any other details you can see the github page given in the Resouces section.
+  </br>
   </br>
   ![image](https://github.com/user-attachments/assets/6f3119cf-4290-41ab-86ea-fd990b5aeb77)
+  </br>
   </br>
 
 1. Clone the page                     : ```git clone https://github.com/icebreaker-fpga/icebreaker-workshop.git```
@@ -370,13 +372,18 @@ make: *** [Makefile:33: prog] Error 2
 7. Then open your command promt or Powershell and navigate to the location where Iceprog.exe is downloaded
     - For me it was in my Downloads in D drive i have done that in the following way
       </br>
+      </br>
       ![image](https://github.com/user-attachments/assets/00e70ae4-3a31-4ab6-9018-f03f2352ca88)
+      </br>
       </br>
     - Then excute the command ```.\iceprog.exe "Path to stopwatch.bin"
     - Copy the path from file manager
       </br>
+      </br>
       ![image](https://github.com/user-attachments/assets/ac8a2bf1-a8f4-40c1-940e-b076864f39e4)
       </br>
+      </br>
+   
 
     - Then you can the see the following
       </br>
