@@ -326,7 +326,7 @@ source -echo "flow.tcl"
 - For any other details you can see the github page given in the Resouces section.
   </br>
   </br>
-  ![image](https://github.com/user-attachments/assets/6f3119cf-4290-41ab-86ea-fd990b5aeb77)
+  ![image](https://github.com/user-attachments/assets/87ca2f68-5b04-42e0-9d4e-125397f86bc1)
   </br>
   </br>
 
@@ -337,7 +337,7 @@ source -echo "flow.tcl"
 4. You can see a incomplete decoder there as shown in the following figure
    </br>
    </br>
-   ![image](https://github.com/user-attachments/assets/d3d9808c-c520-4324-aed4-0c16e59d8abc)
+   ![image](https://github.com/user-attachments/assets/321a038d-430d-4d4f-87ab-2809855cfab8)
    </br>
    </br>
 6. You can fix that using the by pasting the follwing lines in the respective placesin the design and then save the design.
@@ -388,7 +388,9 @@ make: *** [Makefile:33: prog] Error 2
 
     - Then you can the see the following
       </br>
+      </br>
       ![image](https://github.com/user-attachments/assets/8dca0495-5820-4284-a292-6282082ed9d8)
+      </br>
       </br>
     - Now the program has been uploaded in the FPGA board you can see the functionality.
 
