@@ -315,7 +315,76 @@ source -echo "flow.tcl"
   
 ## FPGA_FLOW
   
+### Resources
+- Icebreaker store site                                        --> https://1bitsquared.com/collections/fpga/products/icebreaker
+- Ice breaker's github page with detail info about the board   --> https://github.com/icebreaker-fpga/icebreaker
+- We will be following a icebreaker workshop for the FPGA flow --> https://github.com/icebreaker-fpga/icebreaker-workshop
+- Getting started with Icebreaker in WSL                       --> https://medium.com/@vishruthys/getting-started-with-icebreaker-fpga-on-windows-wsl2-19c6d873ea9f
 
+### Flow steps
+- For this Flow we are going to use icebreaker workshop the icebreaker board will be connected to 7 segemnt display in PMOD1A as shown in the figure below
+- For nay other details you can see the github page given in the Resouces section.
+  </br>
+  ![image](https://github.com/user-attachments/assets/6f3119cf-4290-41ab-86ea-fd990b5aeb77)
+  </br>
+
+1. Clone the page                     : ```git clone https://github.com/icebreaker-fpga/icebreaker-workshop.git```
+2. Enter into the stopwatch directory : ```cd icebreaker-workshop/stopwatch```
+3. Open the design file               : ```vim stopwatch.v```
+4. You can see a incomplete decoder there as shown in the following figure
+   </br>
+   </br>
+   ![image](https://github.com/user-attachments/assets/d3d9808c-c520-4324-aed4-0c16e59d8abc)
+   </br>
+   </br>
+6. You can fix that using the by pasting the follwing lines in the respective placesin the design and then save the design.
+```bash
+4'h3: dout = 7'b 1001111;
+4'h8: dout = 7'b 1111111;
+``` 
+7. There is a pdf inside that directory you can follow that for more knowledge on workshop.
+8. It also has a Makefile to automate the overall flow, therefore you can either execute the entire flow step by step or you can automate that using Makefile.
+9. Then comes the Binary file upload part in the board that we will discuss in a separate section.
+#### Automated flow using Makefile
+1. Connect the board with your laaptop using USB type B cable.
+2. In the stop watch directory run the build and upload process by executing make in the directory by typing: ```make prog```
+3. The flow will start executing and you may see following error
+```bash
+iceprog stopwatch.bin
+init..
+Can't find iCE FTDI USB device (vendor_id 0x0403, device_id 0x6010 or 0x6014).
+ABORT.
+make: *** [Makefile:33: prog] Error 2
+```
+4. This error occures since WSL2 doesnt support serial devices via the terminal or any USB devices
+5. Now you can see you have the stopwatch.bin file now u have to just upload that.
+6. Move to upload binary in Icebreaker section to burn you .bin file in the board.
+
+### Upload binary file in Icebreaker
+1. Download and install Zadig using the link : https://zadig.akeo.ie/
+2. Open Zadig then Options ->List all devices
+3. You can see icebreaker(Interface 0) choose that.
+4. Change the driver to libusbK (v3.1.0.0)
+5. Then click on Install WCDI driver
+6. Then you need DOS version of Iceprog download it from the link : https://github.com/gojimmypi/ulx3s-toolchain/tree/development/bin
+7. Then open your command promt or Powershell and navigate to the location where Iceprog.exe is downloaded
+    - For me it was in my Downloads in D drive i have done that in the following way
+      </br>
+      ![image](https://github.com/user-attachments/assets/00e70ae4-3a31-4ab6-9018-f03f2352ca88)
+      </br>
+    - Then excute the command ```.\iceprog.exe "Path to stopwatch.bin"
+    - Copy the path from file manager
+      </br>
+      ![image](https://github.com/user-attachments/assets/ac8a2bf1-a8f4-40c1-940e-b076864f39e4)
+      </br>
+
+    - Then you can the see the following
+      </br>
+      ![image](https://github.com/user-attachments/assets/8dca0495-5820-4284-a292-6282082ed9d8)
+      </br>
+    - Now the program has been uploaded in the FPGA board you can see the functionality.
+
+   
   
  
 
