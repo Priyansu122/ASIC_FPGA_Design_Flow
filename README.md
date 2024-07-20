@@ -394,7 +394,12 @@ make: *** [Makefile:33: prog] Error 2
       </br>
     - Now the program has been uploaded in the FPGA board you can see the functionality.
 
-   
+  ### Results of FPGA flow
+
+  ![image](https://github.com/user-attachments/assets/e6321edf-a7b9-446c-8b1f-17968a07d61f)
+
+
+
   
  
 
