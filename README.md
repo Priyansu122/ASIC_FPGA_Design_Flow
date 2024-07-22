@@ -336,7 +336,7 @@ source -echo "flow.tcl"
 3. Open the design file               : ```vim stopwatch.v```
 4. You can see a incomplete decoder there as shown in the following figure
    </br>
-   </br>
+   </br> 
    ![image](https://github.com/user-attachments/assets/321a038d-430d-4d4f-87ab-2809855cfab8)
    </br>
    </br>
