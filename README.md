@@ -368,13 +368,18 @@ make: *** [Makefile:33: prog] Error 2
 2. Open Zadig then Options ->List all devices
 3. You can see icebreaker(Interface 0) choose that.
 4. Change the driver to libusbK (v3.1.0.0)
-5. Then click on Install WCDI driver as shown in the figure below,
+5. Then click on Install WCDI driver as shown in the figure below
+
+</br>
+</br>  
+
+![image](https://github.com/user-attachments/assets/d102cce4-4779-4a3c-a733-5b9d5d6a030f)
+
 </br>
 </br>
-![image](https://github.com/user-attachments/assets/3cc0b95d-2e31-46e1-915c-98a3159779d6)
-</br>
-</br>
+
 6. Then you need DOS version of Iceprog download it from the link : https://github.com/gojimmypi/ulx3s-toolchain/tree/development/bin
+      
 7. Then open your command promt or Powershell and navigate to the location where Iceprog.exe is downloaded
     - For me it was in my Downloads in D drive i have done that in the following way
       </br>
@@ -398,6 +403,7 @@ make: *** [Makefile:33: prog] Error 2
       </br>
       </br>
     - Now the program has been uploaded in the FPGA board you can see the functionality.
+  
 
   ### Results of FPGA flow
 
